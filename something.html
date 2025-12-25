@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Growing Flower</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at bottom, #1b3a2b, #000);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background: #1b3a2b;
+  }
+
+  .stem {
+    position: absolute;
+    bottom: 120px;
+    width: 6px;
+    height: 0;
+    background: linear-gradient(to top, #0f5132, #3cb371);
+    animation: growStem 4s ease-out forwards;
+  }
+
+  .leaf {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background: #2ecc71;
+    border-radius: 40px 40px 0 40px;
+    opacity: 0;
+    transform-origin: left;
+    animation: growLeaf 1s ease forwards;
+  }
+
+  .leaf.left {
+    left: -35px;
+    top: 120px;
+    transform: rotate(-30deg);
+    animation-delay: 2s;
+  }
+
+  .leaf.right {
+    right: -35px;
+    top: 200px;
+    transform: rotate(30deg) scaleX(-1);
+    animation-delay: 2.5s;
+  }
+
+  .flower {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 80px;
+    height: 80px;
+    animation: bloom 2s ease-out forwards;
+    animation-delay: 4s;
+  }
+
+  .petal {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background: pink;
+    border-radius: 50%;
+    transform-origin: bottom center;
+  }
+
+  .petal:nth-child(1) { transform: rotate(0deg); }
+  .petal:nth-child(2) { transform: rotate(45deg); }
+  .petal:nth-child(3) { transform: rotate(90deg); }
+  .petal:nth-child(4) { transform: rotate(135deg); }
+  .petal:nth-child(5) { transform: rotate(180deg); }
+  .petal:nth-child(6) { transform: rotate(225deg); }
+  .petal:nth-child(7) { transform: rotate(270deg); }
+  .petal:nth-child(8) { transform: rotate(315deg); }
+
+  .center {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: gold;
+    border-radius: 50%;
+    top: 30px;
+    left: 30px;
+  }
+
+  @keyframes growStem {
+    from { height: 0; }
+    to { height: 300px; }
+  }
+
+  @keyframes growLeaf {
+    to { opacity: 1; }
+  }
+
+  @keyframes bloom {
+    to {
+      transform: translateX(-50%) scale(1);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="ground"></div>
+
+<div class="stem">
+  <div class="leaf left"></div>
+  <div class="leaf right"></div>
+
+  <div class="flower">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="center"></div>
+  </div>
+</div>
+
+</body>
+</html>
